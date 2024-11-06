@@ -40,3 +40,22 @@
 .read-the-docs {
   color: #888;
 } */
+
+
+.moving-border {
+  position: relative;
+  display: inline-block;
+  border: 3px solid transparent;
+  border-image: linear-gradient(45deg, #ffffff, transparent, #ffffff, transparent);
+  border-image-slice: 1;
+  animation: border-move 3s linear infinite;
+}
+
+@keyframes border-move {
+  0% {
+    border-image-source: linear-gradient(45deg, #ffffff, transparent, #ffffff, transparent);
+  }
+  100% {
+    border-image-source: linear-gradient(405deg, #ffffff, transparent, #ffffff, transparent);
+  }
+}
