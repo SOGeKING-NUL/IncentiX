@@ -5,6 +5,7 @@ import About from "./components/Aboutus.jsx";
 import WalletConnection from "./components/Walletconnection.jsx";
 import Profile from "./pages/Profile.jsx";
 import { useAuth0 } from "@auth0/auth0-react";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
 
 const App = () => {
   const {isAuthenticated} = useAuth0();
@@ -17,6 +18,7 @@ const App = () => {
             <Route path="/" element={<Landing />} />
             <Route path="/wallet-connection" element={<WalletConnection />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
       </div>
