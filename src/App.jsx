@@ -18,7 +18,7 @@ const App = () => {
             <Route path="/" element={<Landing />} />
             <Route path="/wallet-connection" element={<WalletConnection />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="*" element={<NotFoundPage />} />
+            {/* <Route path="*" element={<NotFoundPage />} /> */}
           </Routes>
         </main>
       </div>
