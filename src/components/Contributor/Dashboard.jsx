@@ -46,10 +46,10 @@ export const ContributorDashboard = () => {
               <Home className="w-6 h-6" />
               Home
             </a>
-            <button className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
+            <a href="/wallet-connection" className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
               <Wallet className="w-6 h-6" />
               Connect Wallet
-            </button>
+            </a>
           </div>
         </div>
 

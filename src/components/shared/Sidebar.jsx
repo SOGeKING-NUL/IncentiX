@@ -7,6 +7,7 @@ import {
   Settings,
   LogOut,
   Github,
+  EuroIcon,
 } from 'lucide-react';
 import clsx from 'clsx';
 import { useAuthStore } from '../../store/auth';
@@ -18,6 +19,7 @@ export const Sidebar = ({ type }) => {
   const maintainerLinks = [
     { to: '/maintainer', icon: Home, label: 'Dashboard' },
     { to: '/maintainer/repositories', icon: Github, label: 'Repositories' },
+    { to: '/maintainer/bounties', icon: GitPullRequest, label: 'Create Bounties' },
     { to: '/maintainer/issues', icon: GitPullRequest, label: 'Issues' },
     { to: '/maintainer/wallet', icon: Wallet, label: 'Wallet' },
     { to: '/maintainer/settings', icon: Settings, label: 'Settings' },
@@ -26,7 +28,8 @@ export const Sidebar = ({ type }) => {
 
   const contributorLinks = [
     { to: '/contributor', icon: Home, label: 'Dashboard' },
-    { to: '/contributor/bounties', icon: GitPullRequest, label: 'Bounties' },
+    { to: '/contributor/bounties', icon: GitPullRequest, label: 'Solve Bounties' },
+    { to: '/contributor/earnings', icon: EuroIcon, label: 'Earnings' },
     { to: '/contributor/wallet', icon: Wallet, label: 'Wallet' },
     { to: '/contributor/settings', icon: Settings, label: 'Settings' },
     { to: '/contributor/profile', icon: GitPullRequest, label: 'Profile' },
