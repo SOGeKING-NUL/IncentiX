@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bounty System</title>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+    <script src="bountySystem.js"></script> <!-- Link to the BountySystem JS file -->
+</head>
+<body>
+    <h1>Bounty System</h1>
+    
+    <!-- Connect Wallet Button -->
+    <button id="connectWalletBtn">Connect MetaMask</button>
+    <p id="walletAddress"></p>
+    
+    <!-- Deploy Contract Section -->
+    <h3>Deploy Bounty Contract</h3>
+    <label for="bountyHunterAddress">Bounty Hunter Address:</label>
+    <input type="text" id="bountyHunterAddress" placeholder="Enter bounty hunter address">
+    <label for="bountyAmount">Bounty Amount (in ETH):</label>
+    <input type="number" id="bountyAmount" placeholder="Enter bounty amount">
+    <button id="deployContractBtn">Deploy Contract</button>
+    
+    <!-- Complete Bounty Section -->
+    <h3>Complete Bounty</h3>
+    <label for="contractAddress">Contract Address:</label>
+    <input type="text" id="contractAddress" placeholder="Enter deployed contract address">
+    <button id="markCompleteBtn">Mark as Complete & Release Funds</button>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const bountySystem = new BountySystem();
+
+            // Connect Wallet Button Handler
+            document.getElementById('connectWalletBtn').onclick = async () => {
+                try {
+                    const account = await bountySystem.connectWallet();
+                    document.getElementById('walletAddress').innerText = `Connected Account: ${account}`;
+                } catch (error) {
+                    console.error('Error connecting wallet:', error);
+                }
+            };
+
+            // Deploy Contract Button Handler
+            document.getElementById('deployContractBtn').onclick = async () => {
+                try {
+                    const bountyHunterAddress = document.getElementById('bountyHunterAddress').value;
+                    const bountyAmount = ethers.utils.parseEther(document.getElementById('bountyAmount').value);
+                    
+                    if (!bountyHunterAddress || !bountyAmount) {
+                        alert('Please enter a bounty hunter address and bounty amount.');
+                        return;
+                    }
+                    
+                    const contractAddress = await bountySystem.deployBountyContract(bountyHunterAddress, bountyAmount);
+                    alert(`Contract deployed successfully at address: ${contractAddress}`);
+                } catch (error) {
+                    console.error('Error deploying contract:', error);
+                }
+            };
+
+            // Mark Complete and Release Funds Button Handler
+            document.getElementById('markCompleteBtn').onclick = async () => {
+                try {
+                    const contractAddress = document.getElementById('contractAddress').value;
+                    
+                    if (!contractAddress) {
+                        alert('Please enter the contract address.');
+                        return;
+                    }
+                    
+                    // Mark work as complete
+                    await bountySystem.markComplete(contractAddress);
+                    alert('Bounty marked as complete.');
+
+                    // Release funds to bounty hunter
+                    await bountySystem.releaseFunds(contractAddress);
+                    alert('Funds released to bounty hunter.');
+                } catch (error) {
+                    console.error('Error marking complete or releasing funds:', error);
+                }
+            };
+        });
+    </script>
+</body>
+</html>
