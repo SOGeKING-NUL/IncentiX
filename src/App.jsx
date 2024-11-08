@@ -18,6 +18,8 @@ import ContributorProfile from './pages/Profile/ContributorProfile.jsx';
 import MaintainerProfile from './pages/Profile/Maintainerprofile.jsx';
 import CreateBounty from './components/Maintainer/CreateBounty.jsx';
 import Docs from './components/Docs.jsx';
+import SolveBounties from './components/Contributor/SolveBounties.jsx';
+import Repocalling from './components/Contributor/RepoCalling.jsx';
 
 const App = () => {
   const {isAuthenticated} = useAuth0();
@@ -44,6 +46,8 @@ const App = () => {
             <Route path="/contributor/profile" element={<ContributorProfile />} />
             <Route path="/maintainer/profile" element={<MaintainerProfile />} />
             <Route path="/maintainer/bounties" element={<CreateBounty />} />
+            <Route path="/contributor/bounties" element={<SolveBounties />} />
+            <Route path="/contributor/repos" element={<Repocalling />} />
             <Route path="/docs" element={<Docs />} />
        
         
