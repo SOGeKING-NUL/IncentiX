@@ -1,11 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect} from 'react';
+import { Link, useNavigate  } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 
 const LandingPage = () => {
   const { loginWithRedirect, user, logout, isAuthenticated } = useAuth0();
+  const navigate = useNavigate();
   console.log(user);
-
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/wallet-connection');
+    }
+  }, [isAuthenticated, navigate]);
   return (
     <div className=" bg-gradient-to-b from-black via-gray-900 to-black text-white min-h-screen flex flex-col">
       {/* Header */}
