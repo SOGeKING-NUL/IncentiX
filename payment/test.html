@@ -49,7 +49,8 @@
   </div>
 
   <script>
-    document.getElementById('connect-wallet-button').addEventListener('click', async function() {
+    // Wallet connect function
+    async function connectWallet() {
       if (window.ethereum) {
         try {
           const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -66,8 +67,9 @@
       } else {
         showToast("MetaMask not detected.", "error");
       }
-    });
+    }
 
+    // Show toast function
     function showToast(message, type) {
       const toast = document.createElement('div');
       toast.classList.add('toast');
@@ -90,6 +92,9 @@
         document.body.removeChild(toast);
       }, 3000);
     }
+
+    // Event listener for the button click
+    document.getElementById('connect-wallet-button').addEventListener('click', connectWallet);
   </script>
 </body>
 </html>
