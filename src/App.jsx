@@ -8,8 +8,8 @@ import LandingPage from './pages/Landingpage.jsx';
 import About from './components/Aboutus.jsx';
 
 import WalletConnection from './components/Walletconnection.jsx';
-import NotRoutedDefined from './components/Error404.jsx';
 
+import NotFound from './components/NotFound.jsx';
 
 
 import { useAuth0 } from "@auth0/auth0-react";
@@ -17,6 +17,7 @@ import RoleSelection from './components/Question.jsx';
 import ContributorProfile from './pages/Profile/ContributorProfile.jsx';
 import MaintainerProfile from './pages/Profile/Maintainerprofile.jsx';
 import CreateBounty from './components/Maintainer/CreateBounty.jsx';
+import Docs from './components/Docs.jsx';
 
 const App = () => {
   const {isAuthenticated} = useAuth0();
@@ -36,17 +37,19 @@ const App = () => {
             {/* Dashboard Routes */}
             <Route path="/maintainer" element={<MaintainerDashboard />} />
             <Route path="/contributor" element={<ContributorDashboard />} />
-            <Route path="/404" element={<NotRoutedDefined />} />
+            
+  
         
             <Route path="/role" element={<RoleSelection />} />
             <Route path="/contributor/profile" element={<ContributorProfile />} />
             <Route path="/maintainer/profile" element={<MaintainerProfile />} />
             <Route path="/maintainer/bounties" element={<CreateBounty />} />
+            <Route path="/docs" element={<Docs />} />
        
         
-
-            {/* Redirect for undefined routes */}
-            <Route path="*" element={<Navigate to="/404" />} />
+            <Route path="*" element={<NotFound />} />
+         
+            
           </Routes>
         </main>
       </div>
