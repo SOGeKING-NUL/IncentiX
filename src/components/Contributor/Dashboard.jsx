@@ -2,20 +2,67 @@ import React, { useEffect, useState } from 'react';
 import { Sidebar } from '../shared/Sidebar';
 import { githubAPI } from '../../lib/github';
 import { useAuthStore } from '../../store/auth';
+import { useAuth0 } from "@auth0/auth0-react";
 import { GitPullRequest, DollarSign, CheckCircle, Wallet, Home } from 'lucide-react';
+import axios from 'axios';
 
 export const ContributorDashboard = () => {
   const [bounties, setBounties] = useState([]);
+  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
   const [repos, setRepos] = useState([]);
   const [contributions, setContributions] = useState(0);
   const token = useAuthStore((state) => state.token);
+  const [loading, setLoading] = useState(true);
 
+  // Code written by arsh
   useEffect(() => {
     if (token) {
       githubAPI.setToken(token);
       loadContributorData();
     }
   }, [token]);
+
+  // useEffect(() => {
+  //   const fetchContributorData = async () => {
+  //     try {
+  //       // Get access token for GitHub API
+  //       const token = await getAccessTokenSilently({
+  //         audience: "https://api.github.com/",
+  //         scope: "read:user repo"
+  //       });
+
+  //       console.log("Access token:", token);
+
+  //       // Fetch repositories
+  //       const response = await axios.get("https://api.github.com/user/repos", {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`
+  //         }
+  //       });
+  //       console.log("Repositories:", response);
+
+  //       // Set repositories and calculate total contributions
+  //       setRepos(response.data);
+  //       const totalContributions = response.data.reduce((acc, repo) => acc + (repo.contributions || 0), 0);
+  //       setContributions(totalContributions);
+
+  //       // Fetch bounties if any specific API is set up for them (using dummy data here as a placeholder)
+  //       const bountyResponse = await axios.get("/api/bounties"); // Replace with your endpoint
+  //       setBounties(bountyResponse.data);
+        
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   if (isAuthenticated) {
+  //     fetchContributorData();
+  //   }
+  // }, [getAccessTokenSilently, isAuthenticated]);
+
+  // if (loading) return <p>Loading dashboard...</p>;
 
   const loadContributorData = async () => {
     try {
@@ -103,6 +150,17 @@ export const ContributorDashboard = () => {
                 </span>
               </div>
             ))}
+            {/* {repos.map((repo) => (
+              <div key={repo.id} className="p-4 bg-gray-50 rounded-lg flex justify-between items-center">
+                <div>
+                  <h3 className="font-medium">{repo.name}</h3>
+                  <p className="text-sm text-gray-500">{repo.full_name}</p>
+                </div>
+                <span className="px-3 py-1 text-sm text-blue-700 bg-blue-100 rounded-full">
+                  Contributions: {repo.contributions || "N/A"}
+                </span>
+              </div>
+            ))} */}
           </div>
         </div>
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { useEffect} from 'react';
-import { Link, useNavigate  } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 
 const LandingPage = () => {
@@ -24,7 +24,7 @@ const LandingPage = () => {
           <Link to="/features" className="text-gray-300 hover:text-white">Features</Link>
           <Link to="/contact" className="text-gray-300 hover:text-white">Contact</Link>
           {isAuthenticated ? <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
-          className='bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-full shadow-md transition duration-300'
+            className='bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-full shadow-md transition duration-300'
           >
             Log Out
           </button> : <button
@@ -46,7 +46,7 @@ const LandingPage = () => {
         <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-2xl mb-8">
           Empowering innovation through incentivized solutions. IncentiX is your gateway to rewarding creativity and fostering growth within communities and projects.
         </p>
-        
+
         {/* Just for testing of auth0 */}
         {/* {isAuthenticated && (
           <div>
@@ -57,7 +57,11 @@ const LandingPage = () => {
 
         {/* Get Started Button */}
         <button className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-full shadow-lg transition duration-300"
-          onClick={() => loginWithRedirect()}>
+          onClick={() => loginWithRedirect({
+            connection: "github",
+            // scope: "read:user repo",
+            scope: "public_repo",
+          })}>
           Get Started</button>
       </main>
 
