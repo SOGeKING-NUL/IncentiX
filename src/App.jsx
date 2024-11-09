@@ -18,7 +18,9 @@ import SolveBounties from './components/Contributor/SolveBounties.jsx';
 import Repocalling from './components/Contributor/RepoCalling.jsx';
 import WalletConnector from './components/walletConnect.jsx'; 
 import ConnectWalletModal from './components/connectwithmodal.jsx';
-import IssuesFetcher from './components/Issue.jsx';
+import IssuesFetcher from './components/Maintainer/IssueCalling.jsx';
+import IssuesList from './components/Contributor/AllIssuesforconti.jsx';
+import MaintainerDash from './components/Maintainer/AssignedIssues.jsx';
 
 const App = () => {
   const { isAuthenticated } = useAuth0();
@@ -51,10 +53,13 @@ const App = () => {
             <Route path="/maintainer/bounties" element={<CreateBounty />} />
             <Route path="/contributor/bounties" element={<SolveBounties />} />
             <Route path="/contributor/repos" element={<Repocalling />} />
-            {/* <Route path="/maintainer/issues" element={<Issuecalling />} /> */}
+            <Route path="/contributor/issues" element={<IssuesList />} />
+           <Route path="/maintainer/issues" element={<IssuesFetcher />} />
+            <Route path="/maintainer/assignissues" element={<MaintainerDash />} />
             <Route path="/docs" element={<Docs />} />
             <Route path="/connect" element={<WalletConnector />} />
             <Route path="lll" element={<IssuesFetcher />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
