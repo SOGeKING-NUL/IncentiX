@@ -18,49 +18,54 @@ import ContributorProfile from './pages/Profile/ContributorProfile.jsx';
 import MaintainerProfile from './pages/Profile/Maintainerprofile.jsx';
 import CreateBounty from './components/Maintainer/CreateBounty.jsx';
 import Docs from './components/Docs.jsx';
+import Repositories from './components/Repository.jsx';
 
 const App = () => {
-  const {isAuthenticated} = useAuth0();
+  const { isAuthenticated } = useAuth0();
 
   return (
     <Router>
 
       <div className="flex min-h-screen bg-gray-100">
-        
+
         <main className="flex-1">
           <Routes>
             {/* Public Routes */}
             <Route path="/" element={<Landing />} />
-          
+
             <Route path="/wallet-connection" element={<WalletConnection />} />
 
             {/* Dashboard Routes */}
             <Route path="/maintainer" element={<MaintainerDashboard />} />
             <Route path="/contributor" element={<ContributorDashboard />} />
-            
-  
-        
+
+            {/* Sample Route -> Remove krdunga abhi  */}
+            <Route
+              path="/repositories"
+              element={<Repositories /> }
+            />
+
             <Route path="/role" element={<RoleSelection />} />
             <Route path="/contributor/profile" element={<ContributorProfile />} />
             <Route path="/maintainer/profile" element={<MaintainerProfile />} />
             <Route path="/maintainer/bounties" element={<CreateBounty />} />
             <Route path="/docs" element={<Docs />} />
-       
-        
+
+
             <Route path="*" element={<NotFound />} />
-         
-            
+
+
           </Routes>
         </main>
       </div>
       <Toaster position="top-right" />
     </Router>
 
-      
-           
-           
-           
-     
+
+
+
+
+
   );
 };
 
