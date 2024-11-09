@@ -9,7 +9,7 @@ const LandingPage = () => {
   console.log(user);
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/wallet-connection');
+      navigate('/connect');
     }
   }, [isAuthenticated, navigate]);
   return (

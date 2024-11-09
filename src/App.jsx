@@ -20,6 +20,10 @@ import CreateBounty from './components/Maintainer/CreateBounty.jsx';
 import Docs from './components/Docs.jsx';
 import SolveBounties from './components/Contributor/SolveBounties.jsx';
 import Repocalling from './components/Contributor/RepoCalling.jsx';
+import Issuecalling from './components/Maintainer/IssueCalling.jsx';
+import WalletConnector from './components/walletConnect.jsx'; 
+import ConnectWalletModal from './components/connectwithmodal.jsx';
+import IssuesFetcher from './components/Issue.jsx';
 
 const App = () => {
   const {isAuthenticated} = useAuth0();
@@ -48,7 +52,10 @@ const App = () => {
             <Route path="/maintainer/bounties" element={<CreateBounty />} />
             <Route path="/contributor/bounties" element={<SolveBounties />} />
             <Route path="/contributor/repos" element={<Repocalling />} />
+            <Route path="/maintainer/issues" element={<Issuecalling />} />
             <Route path="/docs" element={<Docs />} />
+            <Route path="/connect" element={<WalletConnector />} />
+            <Route path="lll" element={<IssuesFetcher />} />
        
         
             <Route path="*" element={<NotFound />} />

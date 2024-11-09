@@ -21,7 +21,7 @@ const RoleSelection = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-black via-gray-800 to-black p-6">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-black via-gray-800 to-black  p-6">
       <h1 className="text-3xl font-bold text-white mb-8">
   Choose Your Role in Incenti<span className="text-blue-500">X</span>
 </h1>
