@@ -30,6 +30,7 @@ export const Sidebar = ({ type }) => {
     { to: '/contributor', icon: Home, label: 'Dashboard' },
     { to: '/contributor/bounties', icon: GitPullRequest, label: 'Solve Bounties' },
     { to: '/contributor/earnings', icon: EuroIcon, label: 'Earnings' },
+    { to: '/contributor/repos', icon: GitPullRequest, label: 'Repositories' },
     { to: '/contributor/wallet', icon: Wallet, label: 'Wallet' },
     { to: '/contributor/settings', icon: Settings, label: 'Settings' },
     { to: '/contributor/profile', icon: GitPullRequest, label: 'Profile' },
@@ -40,7 +41,8 @@ export const Sidebar = ({ type }) => {
   return (
     <div className="h-screen w-64 bg-gray-900 text-white p-4 flex flex-col">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold">IncentiX</h1>
+        <h1 className="text-2xl font-bold">Incenti<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-800">X</span></h1>
+      
       </div>
 
       <nav className="flex-1">

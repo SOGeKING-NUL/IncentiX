@@ -9,7 +9,7 @@ const LandingPage = () => {
   console.log(user);
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/contributor');
+      navigate('/connect');
     }
   }, [isAuthenticated, navigate]);
   return (
