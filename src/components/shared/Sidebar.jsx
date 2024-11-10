@@ -22,24 +22,20 @@ export const Sidebar = ({ type }) => {
     { to: '/maintainer/bounties', icon: GitPullRequest, label: 'Create Bounties' },
     { to: '/maintainer/issues', icon: GitPullRequest, label: 'Issues' },
     { to: '/maintainer/assignissues', icon: EuroIcon, label: 'Assigned Issues' },
-    { to: '/maintainer/wallet', icon: Wallet, label: 'Wallet' },
     { to: '/maintainer/settings', icon: Settings, label: 'Settings' },
     { to: '/maintainer/profile', icon: GitPullRequest, label: 'Profile' },
   ];
 
   const contributorLinks = [
     { to: '/contributor', icon: Home, label: 'Dashboard' },
-    { to: '/contributor/bounties', icon: GitPullRequest, label: 'Solve Bounties' },
-    
     { to: '/contributor/repos', icon: GitPullRequest, label: 'Repositories' },
     { to: '/contributor/issues', icon: GitPullRequest, label: 'All Issues' }, //incentix-bounty vale issues
     { to: '/contributor/pendingissues', icon: Wallet, label: 'Pending Issues' }, //issues jo assigned hai 
-    { to: '/contributor/claimedissues', icon: Wallet, label: 'Claimed Issues' }, //issue jo claim kiya hai
     { to: '/contributor/completedissues', icon: Wallet, label: 'Completed Issues' }, //issue jo complete kar diye hai , pr raise kar di hai  , maintainer ko merge karna hai 
     { to: '/contributor/earnings', icon: EuroIcon, label: 'Earnings' }, 
-    { to: '/contributor/wallet', icon: Wallet, label: 'Wallet' },
     { to: '/contributor/settings', icon: Settings, label: 'Settings' },
     { to: '/contributor/profile', icon: GitPullRequest, label: 'Profile' },
+    
   ];
 
   const links = type === 'maintainer' ? maintainerLinks : contributorLinks;
@@ -47,7 +43,11 @@ export const Sidebar = ({ type }) => {
   return (
     <div className="h-screen w-64 bg-gray-900 text-white p-4 flex flex-col">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold">Incenti<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-800">X</span></h1>
+      <h1 className="text-2xl font-bold">
+  <Link to="/">
+    Incenti<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-800">X</span>
+  </Link>
+</h1>
       
       </div>
 

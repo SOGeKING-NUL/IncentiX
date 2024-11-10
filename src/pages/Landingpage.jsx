@@ -39,7 +39,7 @@ const LandingPage = () => {
         </div>
         <nav className="space-x-6 flex items-center">
           <a href="#about" className="text-gray-300 hover:text-white">About</a>
-          <Link to="/features" className="text-gray-300 hover:text-white">Features</Link>
+          <a href="#reviews" className="text-gray-300 hover:text-white">Reviews</a>
           <a href="#contact" className="text-gray-300 hover:text-white">Contact</a>
           {isAuthenticated ? <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
             className='bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-full shadow-md transition duration-300'
@@ -61,8 +61,9 @@ const LandingPage = () => {
         </h1>
 
         {/* Tagline */}
-        <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-2xl mb-8">
-          Empowering innovation through incentivized solutions. IncentiX is your gateway to rewarding creativity and fostering growth within communities and projects.
+        <p className="text-sm md:text-xl  text-gray-300 max-w-2xl mb-8">
+        Transforming Open-Source with immediate crypto rewards for every contribution.
+        Empowering developers, fueling innovation, and building a collaborative ecosystem where every effort is recognized instantly.
         </p>
 
         {/* Just for testing of auth0 */}

@@ -33,11 +33,17 @@ const ContributorEarnings = () => {
     { id: 26, title: 'Add file upload functionality to profile settings', dateMerged: '2023-08-25', bounty: 140 },
   ];
 
+  const [timeFilter, setTimeFilter] = useState('monthly'); // Default filter to monthly
+
+  // Calculate total bounty earned
   const totalBountyEarned = issues.reduce((acc, issue) => acc + issue.bounty, 0);
 
   return (
     <div className="flex min-h-screen bg-gray-100">
+      {/* Sidebar */}
       <Sidebar type="contributor" />
+
+      {/* Main Content */}
       <div className="flex-1 p-6 bg-white overflow-hidden rounded-lg shadow-md">
         <h1 className="text-3xl font-semibold text-center text-blue-600 mb-8">Contributor Earnings Summary</h1>
 
