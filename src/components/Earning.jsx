@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CheckCircleIcon, CurrencyDollarIcon } from '@heroicons/react/24/outline';
 import { Sidebar } from '../components/shared/Sidebar';
 import dayjs from 'dayjs';
-
 
 const ContributorEarnings = () => {
   const issues = [
@@ -32,33 +31,6 @@ const ContributorEarnings = () => {
     { id: 24, title: 'Implement feature flags for beta testing', dateMerged: '2023-09-20', bounty: 110 },
     { id: 25, title: 'Fix bug in checkout flow', dateMerged: '2023-09-05', bounty: 130 },
     { id: 26, title: 'Add file upload functionality to profile settings', dateMerged: '2023-08-25', bounty: 140 },
-
-const Earnings = () => {
-  const [timeFilter, setTimeFilter] = useState('monthly'); // Default filter to monthly
-
-  // Sample data for earnings
-  const earningsData = [
-    {
-      issueTitle: 'Fix login authentication bug',
-      bounty: 80,
-      date: '2024-10-12',
-    },
-    {
-      issueTitle: 'Implement dark mode feature',
-      bounty: 120,
-      date: '2024-09-28',
-    },
-    {
-      issueTitle: 'Optimize database queries',
-      bounty: 200,
-      date: '2024-09-10',
-    },
-    {
-      issueTitle: 'Improve page load time',
-      bounty: 80,
-      date: '2024-08-25',
-    },
-
   ];
 
   const totalBountyEarned = issues.reduce((acc, issue) => acc + issue.bounty, 0);
