@@ -52,21 +52,30 @@ Incentix is a decentralized platform designed to reward contributors for their w
 
 ### *Installation*
 
-1. *Clone the Repository*
-    bash
+1. *Clone the Repository* 
+    ```bash
     git clone https://github.com/ArshTiwari2004/IncentiX.git
+    ```
+    ```bash
     cd IncentiX
+    ```
     
-2. *Install Frontend Dependencies*
-    bash
+3. *Install Frontend Dependencies*
+    ```bash
     npm install
+    ```
 
 
-3. *Install Backend Dependencies*
-    bash
+4. *Install Backend Dependencies*
+    ```bash
     cd IncentiX-backend
+    ```
+    ```bash
     npm install
+    ```
+    ```bash
     npm run dev
+    ```
     
 
 ---
@@ -88,21 +97,9 @@ PRIVATE_KEY=<private-key-for-deployment>
 
 ### *1. Running the Backend Server*
 
-Navigate to the IncentiX-backend directory and start the backend server:
-
-bash
-`cd IncentiX-backend
-npm start` 
-
 The backend server will be running on http://localhost:1000.
 
 ### *2. Running the Frontend Client*
-
-Navigate to the client directory and start the frontend client:
-
-bash
-`cd client
-npm run dev` 
 
 The frontend client will be running on http://localhost:5173.
 
@@ -111,7 +108,7 @@ The frontend client will be running on http://localhost:5173.
 -   Visit http://localhost:5173 and click "Get Started" to log in with GitHub.
 -   Choose a role (either *Maintainer* or *Contributor*).
 -   *Maintainers* can assign bounties to issues and validate contributor work.
--   *Contributors* can browse tagged issues, request assignments, and earn rewards upon successful completion.
+-   *Contributors* can browse tagged issues, request assignment on issue on github, and earn rewards upon successful completion.
 
 ----------
 
@@ -131,8 +128,3 @@ Contributions are welcome! To contribute:
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-vbnet
-
-Copy code
-
- This version should be easier to render without errors. Let me know if this solves the issue or if you
