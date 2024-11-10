@@ -18,7 +18,8 @@ import SolveBounties from './components/Contributor/SolveBounties.jsx';
 import Repocalling from './components/Contributor/RepoCalling.jsx';
 import WalletConnector from './components/walletConnect.jsx'; 
 import ConnectWalletModal from './components/connectwithmodal.jsx';
-import IssuesFetcher from './components/Issue.jsx';
+import IssuesFetcher from './components/Maintainer/IssueCalling.jsx';
+import ContactFormWithFooter from './components/Footer.jsx';
 
 const App = () => {
   const { isAuthenticated } = useAuth0();
@@ -51,10 +52,10 @@ const App = () => {
             <Route path="/maintainer/bounties" element={<CreateBounty />} />
             <Route path="/contributor/bounties" element={<SolveBounties />} />
             <Route path="/contributor/repos" element={<Repocalling />} />
-            {/* <Route path="/maintainer/issues" element={<Issuecalling />} /> */}
+            <Route path="/maintainer/issues" element={<IssuesFetcher />} />
             <Route path="/docs" element={<Docs />} />
             <Route path="/connect" element={<WalletConnector />} />
-            <Route path="lll" element={<IssuesFetcher />} />
+            {/* <Route path="lll" element={<IssuesFetcher />} /> */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
@@ -69,6 +70,7 @@ const Landing = () => {
     <div className="flex flex-col">
       <LandingPage />
       <About />
+      <ContactFormWithFooter/>
     </div>
 
   );

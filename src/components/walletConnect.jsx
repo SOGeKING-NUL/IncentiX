@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import Web3 from "web3";
 import { useNavigate } from "react-router-dom";
 import { FaWallet, FaEthereum, FaArrowRight } from "react-icons/fa";
+import axios from "axios";
 
-const WalletConnector = ({ onConnect }) => {
+const WalletConnector = () => {
   const [account, setAccount] = useState("");
   const [balance, setBalance] = useState("");
   const [chainId, setChainId] = useState(null);
   const navigate = useNavigate();
 
+  // Connect function to interact with MetaMask
   const connect = async () => {
     if (typeof window.ethereum === "undefined") {
       console.warn("MetaMask is not installed. Please install MetaMask.");
@@ -17,16 +19,27 @@ const WalletConnector = ({ onConnect }) => {
 
     try {
       const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+
       if (accounts.length > 0) {
-        setAccount(accounts[0]);
-        onConnect(accounts[0]);
+        const connectedAccount = accounts[0];
+        setAccount(connectedAccount);
 
         const web3 = new Web3(window.ethereum);
-        const balanceWei = await web3.eth.getBalance(accounts[0]);
-        setBalance(web3.utils.fromWei(balanceWei, "ether"));
+        const balanceWei = await web3.eth.getBalance(connectedAccount);
+        const balanceInEther = web3.utils.fromWei(balanceWei, "ether");
+        setBalance(balanceInEther);
 
         const chainId2 = await web3.eth.getChainId();
         setChainId(chainId2.toString());
+
+        // Send account details to the server (optional)
+        console.log(connectedAccount);
+        
+        const response = await axios.post("http://localhost:1000/api/account/save", {
+          address: connectedAccount,
+        });
+
+        console.log(response);
       } else {
         console.warn("No accounts found. Please connect to MetaMask.");
       }
@@ -81,7 +94,10 @@ const WalletConnector = ({ onConnect }) => {
 
         <button
           onClick={() => navigate("/role")}
-          className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 ease-in-out w-full text-lg"
+          disabled={!account} // Disable if account is not set
+          className={`flex items-center justify-center py-3 px-6 rounded-lg transition duration-200 ease-in-out w-full text-lg font-semibold ${
+            account ? "bg-blue-600 hover:bg-blue-700 text-white" : "bg-gray-500 cursor-not-allowed text-gray-300"
+          }`}
         >
           Add Your Role <FaArrowRight className="ml-2" />
         </button>
