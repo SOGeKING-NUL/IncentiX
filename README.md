@@ -16,10 +16,10 @@ Incentix is a decentralized platform designed to reward contributors for their w
 ---
 
 ## *Tech Stack*
-- *Frontend*: React + Vite
+- *Frontend*: React + Vite , TailwindCSS
 - *Backend*: Node.js, Express
 - *Database*: MongoDB
-- *Authentication*: OAuth 2.0 (GitHub)
+- *Authentication*: auth0 (GitHub  OAuth 2.0)
 - *Blockchain*: Solidity (Smart Contracts), Polygon Network, Metamask Wallet
 
 ---
@@ -55,19 +55,18 @@ Incentix is a decentralized platform designed to reward contributors for their w
 1. *Clone the Repository*
     bash
     git clone https://github.com/ArshTiwari2004/IncentiX.git
-    cd incentix
+    cd IncentiX
     
+2. *Install Frontend Dependencies*
+    bash
+    npm install
 
-2. *Install Backend Dependencies*
+
+3. *Install Backend Dependencies*
     bash
     cd IncentiX-backend
     npm install
-    
-
-3. *Install Frontend Dependencies*
-    bash
-    cd ../client
-    npm install
+    npm run dev
     
 
 ---
