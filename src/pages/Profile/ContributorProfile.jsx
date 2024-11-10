@@ -3,8 +3,10 @@ import React from 'react';
 import { FaGithub, FaUserCircle, FaClipboardCheck, FaTrophy, FaStar } from 'react-icons/fa';
 import { IoMdHeart } from 'react-icons/io';
 import { useAuth0 } from "@auth0/auth0-react";
+import {useNavigate} from "react-router-dom"
 
 const ContributorProfile = () => {
+  const navigate = useNavigate();
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading) {

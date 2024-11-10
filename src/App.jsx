@@ -19,6 +19,10 @@ import Repocalling from './components/Contributor/RepoCalling.jsx';
 import WalletConnector from './components/walletConnect.jsx'; 
 import ConnectWalletModal from './components/connectwithmodal.jsx';
 import IssuesFetcher from './components/Maintainer/IssueCalling.jsx';
+
+import ContactFormWithFooter from './components/Footer.jsx';
+
+
 import IssuesList from './components/Contributor/AllIssuesforconti.jsx';
 import MaintainerDash from './components/Maintainer/AssignedIssues.jsx';
 
@@ -74,6 +78,7 @@ const Landing = () => {
     <div className="flex flex-col">
       <LandingPage />
       <About />
+      <ContactFormWithFooter/>
     </div>
 
   );

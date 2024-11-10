@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 
 const LandingPage = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // Handle form submission logic here
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
   const { loginWithRedirect, user, logout, isAuthenticated } = useAuth0();
   const navigate = useNavigate();
   console.log(user);
@@ -20,9 +38,9 @@ const LandingPage = () => {
           <span className="text-blue-500">Incenti</span>X
         </div>
         <nav className="space-x-6 flex items-center">
-          <Link to="/about" className="text-gray-300 hover:text-white">About</Link>
+          <a href="#about" className="text-gray-300 hover:text-white">About</a>
           <Link to="/features" className="text-gray-300 hover:text-white">Features</Link>
-          <Link to="/contact" className="text-gray-300 hover:text-white">Contact</Link>
+          <a href="#contact" className="text-gray-300 hover:text-white">Contact</a>
           {isAuthenticated ? <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
             className='bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-full shadow-md transition duration-300'
           >
@@ -64,7 +82,7 @@ const LandingPage = () => {
           })}>
           Get Started</button>
       </main>
-
+      
 
     </div>
   );

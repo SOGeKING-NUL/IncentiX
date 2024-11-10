@@ -1,5 +1,3 @@
-// RoleSelection.jsx
-
 import React, { useState } from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
