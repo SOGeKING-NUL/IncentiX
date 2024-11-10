@@ -30,7 +30,7 @@ const ContributorEarnings = () => {
     { id: 23, title: 'Fix bug in user notifications system', dateMerged: '2023-10-15', bounty: 90 },
     { id: 24, title: 'Implement feature flags for beta testing', dateMerged: '2023-09-20', bounty: 110 },
     { id: 25, title: 'Fix bug in checkout flow', dateMerged: '2023-09-05', bounty: 130 },
-    { id: 26, title: 'Add file upload functionality to profile settings', dateMerged: '2023-08-25', bounty: 140 }
+    { id: 26, title: 'Add file upload functionality to profile settings', dateMerged: '2023-08-25', bounty: 140 },
   ];
 
   const [timeFilter, setTimeFilter] = useState('monthly'); // Default filter to monthly
