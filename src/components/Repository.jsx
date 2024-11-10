@@ -10,7 +10,7 @@ const Repository = () => {
   const url = 'https://api.github.com/users/Heisenberg300604/repos';
 
   // GitHub token for Authorization
-  // const token = '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'; // Make sure to secure the token in environment variables or secrets for production
+  ; // Make sure to secure the token in environment variables or secrets for production
 
   useEffect(() => {
     // Fetch the repositories when the component is mounted
