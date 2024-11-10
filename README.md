@@ -54,7 +54,7 @@ Incentix is a decentralized platform designed to reward contributors for their w
 
 1. *Clone the Repository*
     bash
-    git clone https://github.com/Karush2807/IncentiX.git
+    git clone https://github.com/ArshTiwari2004/IncentiX.git
     cd incentix
     
 
@@ -95,7 +95,7 @@ bash
 `cd IncentiX-backend
 npm start` 
 
-The backend server will be running on http://localhost:5000.
+The backend server will be running on http://localhost:1000.
 
 ### *2. Running the Frontend Client*
 
