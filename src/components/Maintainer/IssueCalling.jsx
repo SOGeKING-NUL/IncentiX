@@ -126,7 +126,7 @@ const IssuesFetcher = () => {
                 {bountyAssigned[issue.id] && (
                   <div className="mt-2 text-green-600">
                     <p>
-                      Bounty of {bountyAssigned[issue.id].amount} {bountyAssigned[issue.id].currency} has been assigned.
+                    Smart Contract holding amount {bountyAssigned[issue.id].amount} {bountyAssigned[issue.id].currency} is ready to be deployed when assigned.
                     </p>
                   </div>
                 )}
