@@ -26,7 +26,8 @@ import ContactFormWithFooter from './components/Footer.jsx';
 import IssuesList from './components/Contributor/AllIssuesforconti.jsx';
 import MaintainerDash from './components/Maintainer/AssignedIssues.jsx';
 import Settings from './components/Settings.jsx';
-import Earnings from './components/Earning.jsx';
+// import Earnings from './components/Earning.jsx';
+import ContributorEarnings from './components/Earning.jsx';
 
 const App = () => {
   const { isAuthenticated } = useAuth0();
@@ -60,7 +61,7 @@ const App = () => {
             <Route path="/contributor/bounties" element={<SolveBounties />} />
             <Route path="/contributor/repos" element={<Repocalling />} />
             <Route path="/contributor/issues" element={<IssuesList />} />
-            <Route path="/contributor/earnings" element={<Earnings />} />
+            <Route path="/contributor/earnings" element={<ContributorEarnings />} />
            <Route path="/maintainer/issues" element={<IssuesFetcher />} />
             <Route path="/maintainer/assignissues" element={<MaintainerDash />} />
             <Route path="/docs" element={<Docs />} />

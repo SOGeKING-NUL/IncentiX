@@ -22,15 +22,16 @@ const About = () => {
             <FaGift className="text-4xl text-blue-500 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Reward System</h3>
             <p className="text-gray-700">
-              Earn points and rewards for each interaction, from contributions to referrals, all converted into real incentives.
-            </p>
+            IncentiX rewards contributors with cryptocurrency for task completion, motivating participation and retention by providing instant, transparent rewards.
+          </p>
           </div>
 
           <div className="bg-white shadow-lg rounded-lg p-6 border border-gray-200 hover:shadow-xl hover:shadow-blue-400 transition-shadow duration-300">
             <FaUsers className="text-4xl text-blue-500 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Community Challenges</h3>
             <p className="text-gray-700">
-              Participate in themed challenges and group quests to earn rewards and engage with like-minded innovators.
+            Periodic challenges foster collaboration and skill-building, creating a sense of community and encouraging healthy competition among contributors.
+
             </p>
           </div>
 
@@ -38,7 +39,7 @@ const About = () => {
             <FaAward className="text-4xl text-blue-500 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Achievements & Badges</h3>
             <p className="text-gray-700">
-              Track your progress with badges and leaderboard rankings as you accomplish goals and achieve milestones.
+            Contributors earn achievements and badges for milestones, enhancing reputation and encouraging continuous engagement through recognition.
             </p>
           </div>
 
@@ -46,7 +47,7 @@ const About = () => {
             <FaLock className="text-4xl text-blue-500 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Secure & Private</h3>
             <p className="text-gray-700">
-              Experience a secure platform with end-to-end encryption, ensuring your data and rewards remain private and protected.
+            Built on blockchain and the Polygon network, ensuring secure, private transactions and protecting contributor data, fostering trust and peace of mind.
             </p>
           </div>
 
@@ -54,7 +55,8 @@ const About = () => {
             <FaChartBar className="text-4xl text-blue-500 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Real-Time Analytics</h3>
             <p className="text-gray-700">
-              Stay informed with live analytics that track engagement levels, reward earnings, and participation trends.
+            Provides real-time insights into performance and contributions, empowering maintainers to make data-driven decisions and helping contributors optimize their impact.
+
             </p>
           </div>
 
@@ -62,7 +64,7 @@ const About = () => {
             <FaRocket className="text-4xl text-blue-500 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Innovation Booster</h3>
             <p className="text-gray-700">
-              Access personalized tools and resources that inspire creativity and accelerate your project's growth and success.
+            Offers tools, mentorship, and creative challenges to spark innovation, nurturing a culture of continuous learning and driving long-term project growth.
             </p>
           </div>
         </div>
