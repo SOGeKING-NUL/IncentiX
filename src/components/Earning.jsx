@@ -9,7 +9,7 @@ const Earnings = () => {
   const earningsData = [
     {
       issueTitle: 'Fix login authentication bug',
-      bounty: 50,
+      bounty: 80,
       date: '2024-10-12',
     },
     {
