@@ -21,13 +21,17 @@ import ConnectWalletModal from './components/connectwithmodal.jsx';
 import IssuesFetcher from './components/Maintainer/IssueCalling.jsx';
 
 import ContactFormWithFooter from './components/Footer.jsx';
-
+import ReviewSection from './components/Review.jsx';
 
 import IssuesList from './components/Contributor/AllIssuesforconti.jsx';
 import MaintainerDash from './components/Maintainer/AssignedIssues.jsx';
+
+
+import PendingIssue from './components/Contributor/Pendingissue.jsx';
 import Settings from './components/Settings.jsx';
-// import Earnings from './components/Earning.jsx';
+
 import ContributorEarnings from './components/Earning.jsx';
+
 
 const App = () => {
   const { isAuthenticated } = useAuth0();
@@ -62,6 +66,10 @@ const App = () => {
             <Route path="/contributor/repos" element={<Repocalling />} />
             <Route path="/contributor/issues" element={<IssuesList />} />
             <Route path="/contributor/earnings" element={<ContributorEarnings />} />
+
+            <Route path="/contributor/pendingissues" element={<PendingIssue />} />
+
+
            <Route path="/maintainer/issues" element={<IssuesFetcher />} />
             <Route path="/maintainer/assignissues" element={<MaintainerDash />} />
             <Route path="/docs" element={<Docs />} />
@@ -83,6 +91,7 @@ const Landing = () => {
     <div className="flex flex-col">
       <LandingPage />
       <About />
+      <ReviewSection/>
       <ContactFormWithFooter/>
     </div>
 

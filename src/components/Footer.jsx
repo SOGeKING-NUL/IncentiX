@@ -22,7 +22,7 @@ const ContactFormWithFooter = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-gray-300 font-sans">
+    <div id='contact' className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-gray-300 font-sans">
       {/* Contact Form Section */}
       <div className="max-w-md mx-auto pt-16 px-4">
         <h2 className="text-4xl font-extrabold text-white mb-10 text-center">Contact Us</h2>

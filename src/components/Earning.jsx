@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CheckCircleIcon, CurrencyDollarIcon } from '@heroicons/react/24/outline';
 import { Sidebar } from '../components/shared/Sidebar';
 import dayjs from 'dayjs';
-
 
 const ContributorEarnings = () => {
   const issues = [
@@ -31,41 +30,20 @@ const ContributorEarnings = () => {
     { id: 23, title: 'Fix bug in user notifications system', dateMerged: '2023-10-15', bounty: 90 },
     { id: 24, title: 'Implement feature flags for beta testing', dateMerged: '2023-09-20', bounty: 110 },
     { id: 25, title: 'Fix bug in checkout flow', dateMerged: '2023-09-05', bounty: 130 },
-    { id: 26, title: 'Add file upload functionality to profile settings', dateMerged: '2023-08-25', bounty: 140 },
-
-const Earnings = () => {
-  const [timeFilter, setTimeFilter] = useState('monthly'); // Default filter to monthly
-
-  // Sample data for earnings
-  const earningsData = [
-    {
-      issueTitle: 'Fix login authentication bug',
-      bounty: 80,
-      date: '2024-10-12',
-    },
-    {
-      issueTitle: 'Implement dark mode feature',
-      bounty: 120,
-      date: '2024-09-28',
-    },
-    {
-      issueTitle: 'Optimize database queries',
-      bounty: 200,
-      date: '2024-09-10',
-    },
-    {
-      issueTitle: 'Improve page load time',
-      bounty: 80,
-      date: '2024-08-25',
-    },
-
+    { id: 26, title: 'Add file upload functionality to profile settings', dateMerged: '2023-08-25', bounty: 140 }
   ];
 
+  const [timeFilter, setTimeFilter] = useState('monthly'); // Default filter to monthly
+
+  // Calculate total bounty earned
   const totalBountyEarned = issues.reduce((acc, issue) => acc + issue.bounty, 0);
 
   return (
     <div className="flex min-h-screen bg-gray-100">
+      {/* Sidebar */}
       <Sidebar type="contributor" />
+
+      {/* Main Content */}
       <div className="flex-1 p-6 bg-white overflow-hidden rounded-lg shadow-md">
         <h1 className="text-3xl font-semibold text-center text-blue-600 mb-8">Contributor Earnings Summary</h1>
 
