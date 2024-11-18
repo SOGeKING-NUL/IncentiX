@@ -169,7 +169,8 @@
         try {
           const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
           account = accounts[0];
-          document.getElementById('message').innerText = `Connected: ${account}`;
+          const wallet_connected= `Connected: ${account}`;
+          console.log(wallet_connected);
           enableButtons();
         } catch (error) {
           console.error('User denied account access', error);
