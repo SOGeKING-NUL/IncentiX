@@ -2,21 +2,34 @@
 import React from 'react';
 import { FaGithub, FaUserCircle, FaClipboardCheck, FaTrophy, FaStar } from 'react-icons/fa';
 import { IoMdHeart } from 'react-icons/io';
+import { useAuth0 } from "@auth0/auth0-react";
+import {useNavigate} from "react-router-dom"
 
 const ContributorProfile = () => {
+  const navigate = useNavigate();
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
+
+  const handleGoBack = () => {
+    navigate(-1); 
+  };
+
   return (
+    isAuthenticated &&(
     <div className="flex flex-col items-center bg-gray-100 p-8 min-h-screen">
       <div className="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6">
         {/* Profile Header */}
         <div className="flex items-center space-x-6 mb-8">
           <FaUserCircle className="w-16 h-16 text-green-600" />
           <div>
-            <h1 className="text-3xl font-bold text-gray-800">Jane Smith</h1>
+            <h1 className="text-3xl font-bold text-gray-800">{user.name}</h1>
             <p className="text-sm text-gray-500">Contributor</p>
           </div>
         </div>
 
-        {/* Bio and Info */}
         <div className="mb-8">
           <p className="text-gray-700 mb-4">
             I'm a passionate open-source contributor. I love tackling challenging bounties and making valuable contributions to the community.
@@ -24,7 +37,7 @@ const ContributorProfile = () => {
           <div className="flex space-x-8 text-gray-600">
             <div className="flex items-center space-x-2">
               <FaGithub className="text-xl" />
-              <a href="https://github.com/janesmith" className="hover:text-blue-500">GitHub</a>
+              <a href={`https://github.com/${user.nickname}`} className="hover:text-blue-500" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
             <div className="flex items-center space-x-2">
               <FaStar className="text-xl" />
@@ -63,12 +76,11 @@ const ContributorProfile = () => {
           </div>
         </div>
 
-        {/* Settings Button */}
-        <button className="w-full py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition">
-          Edit Profile
+        <button onClick={handleGoBack} className="w-full py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition">
+          Go back
         </button>
       </div>
-    </div>
+    </div>)
   );
 };
 

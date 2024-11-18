@@ -1,36 +1,37 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sidebar } from '../shared/Sidebar';
-import { githubAPI } from '../../lib/github';
-import { useAuthStore } from '../../store/auth';
 import { GitPullRequest, DollarSign, CheckCircle, Wallet, Home } from 'lucide-react';
+import axios from 'axios';
 
 export const ContributorDashboard = () => {
   const [bounties, setBounties] = useState([]);
   const [repos, setRepos] = useState([]);
   const [contributions, setContributions] = useState(0);
-  const token = useAuthStore((state) => state.token);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const url = 'https://api.github.com/users/Heisenberg300604/repos';
+  const token = import.meta.env.VITE_GITHUB_TOKEN;
 
   useEffect(() => {
-    if (token) {
-      githubAPI.setToken(token);
-      loadContributorData();
-    }
-  }, [token]);
-
-  const loadContributorData = async () => {
-    try {
-      const issues = await githubAPI.getBountyIssues();
-      setBounties(issues);
-
-      const repositories = await githubAPI.getUserRepositories();
-      setRepos(repositories);
-
-      const totalContributions = repositories.reduce((acc, repo) => acc + repo.contributions, 0);
-      setContributions(totalContributions);
-    } catch (error) {
-      console.error('Error loading data:', error);
-    }
-  };
+    // Fetch the repositories when the component is mounted
+    axios
+      .get(url, {
+        headers: {
+          Authorization: `token ${token}`,
+        },
+      })
+      .then((response) => {
+        setRepos(response.data);  // Store the repositories data
+        setLoading(false);  // Set loading to false after data is fetched
+        const totalContributions = response.data.reduce((acc, repo) => acc + (repo.contributions || 0), 0);
+        setContributions(totalContributions);
+      })
+      .catch((err) => {
+        setError('Failed to fetch repositories');
+        setLoading(false);  // Set loading to false in case of an error
+      });
+  }, []);
 
   return (
     <div className="flex">
@@ -53,7 +54,6 @@ export const ContributorDashboard = () => {
           </div>
         </div>
 
-        {/* Statistics */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between">
@@ -92,17 +92,23 @@ export const ContributorDashboard = () => {
             <h2 className="text-xl font-semibold">Your Repositories</h2>
           </div>
           <div className="p-6 space-y-4">
-            {repos.map((repo) => (
-              <div key={repo.id} className="p-4 bg-gray-50 rounded-lg flex justify-between items-center">
-                <div>
-                  <h3 className="font-medium">{repo.name}</h3>
-                  <p className="text-sm text-gray-500">{repo.full_name}</p>
+            {loading ? (
+              <p>Loading repositories...</p>
+            ) : error ? (
+              <p>{error}</p>
+            ) : (
+              repos.map((repo) => (
+                <div key={repo.id} className="p-4 bg-gray-50 rounded-lg flex justify-between items-center">
+                  <div>
+                    <h3 className="font-medium">{repo.name}</h3>
+                    <p className="text-sm text-gray-500">{repo.full_name}</p>
+                  </div>
+                  <span className="px-3 py-1 text-sm text-blue-700 bg-blue-100 rounded-full">
+                    Contributions: {repo.contributions || "N/A"}
+                  </span>
                 </div>
-                <span className="px-3 py-1 text-sm text-blue-700 bg-blue-100 rounded-full">
-                  Contributions: {repo.contributions}
-                </span>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
 
