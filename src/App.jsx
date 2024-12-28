@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { MaintainerDashboard } from './components/maintainer/Dashboard';
-import { ContributorDashboard } from './components/contributor/Dashboard';
+import { MaintainerDashboard } from './components/Maintainer/Dashboard';
+import { ContributorDashboard } from './components/Contributor/Dashboard';
 import LandingPage from './pages/Landingpage.jsx';
 import About from './components/Aboutus.jsx';
 import WalletConnection from './components/Walletconnection.jsx';
