@@ -10,7 +10,7 @@ import NotFound from './components/NotFound.jsx';
 import { useAuth0 } from "@auth0/auth0-react";
 import RoleSelection from './components/Question.jsx';
 import ContributorProfile from './pages/Profile/ContributorProfile.jsx';
-import MaintainerProfile from './pages/Profile/Maintainerprofile.jsx';
+import MaintainerProfile from './pages/Profile/MaintainerProfile.jsx';
 import CreateBounty from './components/Maintainer/CreateBounty.jsx';
 import Docs from './components/Docs.jsx';
 import Repositories from './components/Repository.jsx';
